@@ -50,6 +50,7 @@ namespace MASActivationService
 
             app.UseApplicationInsightsExceptionTelemetry();
 
-            app.UseMvc();        }
+            app.UseMvc();
+        }
     }
 }

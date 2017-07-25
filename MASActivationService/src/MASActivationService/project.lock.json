@@ -1466,6 +1466,9 @@
         },
         "compile": {
           "ref/netstandard1.3/Microsoft.Win32.Primitives.dll": {}
+        },
+        "runtime": {
+          "lib/net46/Microsoft.Win32.Primitives.dll": {}
         }
       },
       "Microsoft.Win32.Registry/4.0.0": {
@@ -1483,6 +1486,9 @@
         "compile": {
           "ref/netstandard1.3/Microsoft.Win32.Registry.dll": {}
         },
+        "runtime": {
+          "lib/net46/Microsoft.Win32.Registry.dll": {}
+        },
         "runtimeTargets": {
           "runtimes/unix/lib/netstandard1.3/Microsoft.Win32.Registry.dll": {
             "assetType": "runtime",
@@ -1492,6 +1498,15 @@
             "assetType": "runtime",
             "rid": "win"
           }
+        }
+      },
+      "MySql.Data/6.9.9": {
+        "type": "package",
+        "compile": {
+          "lib/net45/MySql.Data.dll": {}
+        },
+        "runtime": {
+          "lib/net45/MySql.Data.dll": {}
         }
       },
       "NETStandard.Library/1.6.0": {
@@ -1680,7 +1695,7 @@
           "ref/netstandard1.3/System.Collections.dll": {}
         },
         "runtime": {
-          "lib/portable-net45+win8+wp8+wpa81/_._": {}
+          "lib/net45/_._": {}
         }
       },
       "System.Collections.Concurrent/4.0.12": {
@@ -1843,6 +1858,9 @@
         },
         "compile": {
           "ref/netstandard1.3/System.Console.dll": {}
+        },
+        "runtime": {
+          "lib/net46/System.Console.dll": {}
         }
       },
       "System.Diagnostics.Contracts/4.0.1": {
@@ -1868,7 +1886,7 @@
           "ref/netstandard1.3/System.Diagnostics.Debug.dll": {}
         },
         "runtime": {
-          "lib/portable-net45+win8+wp8+wpa81/_._": {}
+          "lib/net45/_._": {}
         }
       },
       "System.Diagnostics.DiagnosticSource/4.0.0": {
@@ -1902,6 +1920,9 @@
         },
         "compile": {
           "ref/netstandard1.3/_._": {}
+        },
+        "runtime": {
+          "lib/net46/System.Diagnostics.FileVersionInfo.dll": {}
         },
         "runtimeTargets": {
           "runtimes/unix/lib/netstandard1.3/System.Diagnostics.FileVersionInfo.dll": {
@@ -1942,6 +1963,9 @@
         "compile": {
           "ref/netstandard1.4/System.Diagnostics.Process.dll": {}
         },
+        "runtime": {
+          "lib/net46/_._": {}
+        },
         "runtimeTargets": {
           "runtimes/osx/lib/netstandard1.4/_._": {
             "assetType": "runtime",
@@ -1977,7 +2001,7 @@
           "ref/netstandard1.0/System.Diagnostics.Tools.dll": {}
         },
         "runtime": {
-          "lib/portable-net45+win8+wp8+wpa81/_._": {}
+          "lib/net45/_._": {}
         }
       },
       "System.Diagnostics.Tracing/4.1.0": {
@@ -1991,7 +2015,7 @@
           "ref/netstandard1.5/System.Diagnostics.Tracing.dll": {}
         },
         "runtime": {
-          "lib/portable-net45+win8+wpa81/_._": {}
+          "lib/net45/_._": {}
         }
       },
       "System.Dynamic.Runtime/4.0.11": {
@@ -2031,7 +2055,7 @@
           "ref/netstandard1.3/System.Globalization.dll": {}
         },
         "runtime": {
-          "lib/portable-net45+win8+wp8+wpa81/_._": {}
+          "lib/net45/_._": {}
         }
       },
       "System.Globalization.Calendars/4.0.1": {
@@ -2044,6 +2068,9 @@
         },
         "compile": {
           "ref/netstandard1.3/System.Globalization.Calendars.dll": {}
+        },
+        "runtime": {
+          "lib/net46/System.Globalization.Calendars.dll": {}
         }
       },
       "System.Globalization.Extensions/4.0.1": {
@@ -2058,6 +2085,9 @@
         },
         "compile": {
           "ref/netstandard1.3/System.Globalization.Extensions.dll": {}
+        },
+        "runtime": {
+          "lib/net46/System.Globalization.Extensions.dll": {}
         },
         "runtimeTargets": {
           "runtimes/unix/lib/netstandard1.3/System.Globalization.Extensions.dll": {
@@ -2083,7 +2113,7 @@
           "ref/netstandard1.5/System.IO.dll": {}
         },
         "runtime": {
-          "lib/portable-net45+win8+wp8+wpa81/_._": {}
+          "lib/net45/_._": {}
         }
       },
       "System.IO.Compression/4.1.0": {
@@ -2108,7 +2138,7 @@
           "ref/netstandard1.3/System.IO.Compression.dll": {}
         },
         "runtime": {
-          "lib/portable-net45+win8+wpa81/_._": {}
+          "lib/net46/System.IO.Compression.dll": {}
         },
         "runtimeTargets": {
           "runtimes/unix/lib/netstandard1.3/System.IO.Compression.dll": {
@@ -2155,6 +2185,9 @@
         },
         "compile": {
           "ref/netstandard1.3/System.IO.FileSystem.dll": {}
+        },
+        "runtime": {
+          "lib/net46/System.IO.FileSystem.dll": {}
         }
       },
       "System.IO.FileSystem.Primitives/4.0.1": {
@@ -2192,6 +2225,9 @@
         "compile": {
           "ref/netstandard1.3/System.IO.FileSystem.Watcher.dll": {}
         },
+        "runtime": {
+          "lib/net46/System.IO.FileSystem.Watcher.dll": {}
+        },
         "runtimeTargets": {
           "runtimes/linux/lib/netstandard1.3/System.IO.FileSystem.Watcher.dll": {
             "assetType": "runtime",
@@ -2226,6 +2262,9 @@
         },
         "compile": {
           "ref/netstandard1.3/System.IO.MemoryMappedFiles.dll": {}
+        },
+        "runtime": {
+          "lib/net46/_._": {}
         },
         "runtimeTargets": {
           "runtimes/win/lib/netstandard1.3/_._": {
@@ -2370,7 +2409,7 @@
           "ref/netstandard1.3/System.Net.Http.dll": {}
         },
         "runtime": {
-          "lib/portable-net45+win8+wpa81/_._": {}
+          "lib/net46/System.Net.Http.dll": {}
         },
         "runtimeTargets": {
           "runtimes/unix/lib/netstandard1.6/System.Net.Http.dll": {
@@ -2404,6 +2443,9 @@
         "compile": {
           "ref/netstandard1.3/System.Net.NameResolution.dll": {}
         },
+        "runtime": {
+          "lib/net46/System.Net.NameResolution.dll": {}
+        },
         "runtimeTargets": {
           "runtimes/unix/lib/netstandard1.3/System.Net.NameResolution.dll": {
             "assetType": "runtime",
@@ -2427,7 +2469,7 @@
           "ref/netstandard1.3/System.Net.Primitives.dll": {}
         },
         "runtime": {
-          "lib/portable-net45+win8+wp8+wpa81/_._": {}
+          "lib/net45/_._": {}
         }
       },
       "System.Net.Requests/4.0.11": {
@@ -2451,7 +2493,7 @@
           "ref/netstandard1.3/System.Net.Requests.dll": {}
         },
         "runtime": {
-          "lib/portable-net45+win8+wp8+wpa81/_._": {}
+          "lib/net45/_._": {}
         },
         "runtimeTargets": {
           "runtimes/win/lib/netstandard1.3/_._": {
@@ -2495,6 +2537,9 @@
         "compile": {
           "ref/netstandard1.3/System.Net.Security.dll": {}
         },
+        "runtime": {
+          "lib/net46/_._": {}
+        },
         "runtimeTargets": {
           "runtimes/win/lib/netstandard1.3/_._": {
             "assetType": "runtime",
@@ -2514,6 +2559,9 @@
         },
         "compile": {
           "ref/netstandard1.3/System.Net.Sockets.dll": {}
+        },
+        "runtime": {
+          "lib/net46/_._": {}
         }
       },
       "System.Net.WebHeaderCollection/4.0.1": {
@@ -2590,7 +2638,7 @@
           "ref/netstandard1.5/System.Reflection.dll": {}
         },
         "runtime": {
-          "lib/portable-net45+win8+wp8+wpa81/_._": {}
+          "lib/net45/_._": {}
         }
       },
       "System.Reflection.DispatchProxy/4.0.1": {
@@ -2671,7 +2719,7 @@
           "ref/netstandard1.0/System.Reflection.Extensions.dll": {}
         },
         "runtime": {
-          "lib/portable-net45+win8+wp8+wpa81/_._": {}
+          "lib/net45/_._": {}
         }
       },
       "System.Reflection.Metadata/1.3.0": {
@@ -2711,7 +2759,7 @@
           "ref/netstandard1.0/System.Reflection.Primitives.dll": {}
         },
         "runtime": {
-          "lib/portable-net45+win8+wp8+wpa81/_._": {}
+          "lib/net45/_._": {}
         }
       },
       "System.Reflection.TypeExtensions/4.1.0": {
@@ -2756,7 +2804,7 @@
           "ref/netstandard1.0/System.Resources.ResourceManager.dll": {}
         },
         "runtime": {
-          "lib/portable-net45+win8+wp8+wpa81/_._": {}
+          "lib/net45/_._": {}
         }
       },
       "System.Runtime/4.1.0": {
@@ -2769,7 +2817,7 @@
           "ref/netstandard1.5/System.Runtime.dll": {}
         },
         "runtime": {
-          "lib/portable-net45+win8+wp80+wpa81/_._": {}
+          "lib/net45/_._": {}
         }
       },
       "System.Runtime.Extensions/4.1.0": {
@@ -2783,7 +2831,7 @@
           "ref/netstandard1.5/System.Runtime.Extensions.dll": {}
         },
         "runtime": {
-          "lib/portable-net45+win8+wp8+wpa81/_._": {}
+          "lib/net45/_._": {}
         }
       },
       "System.Runtime.Handles/4.0.1": {
@@ -2795,6 +2843,9 @@
         },
         "compile": {
           "ref/netstandard1.3/System.Runtime.Handles.dll": {}
+        },
+        "runtime": {
+          "lib/net46/_._": {}
         }
       },
       "System.Runtime.InteropServices/4.1.0": {
@@ -2811,7 +2862,7 @@
           "ref/netstandard1.5/System.Runtime.InteropServices.dll": {}
         },
         "runtime": {
-          "lib/portable-net45+win8+wpa81/_._": {}
+          "lib/net45/_._": {}
         }
       },
       "System.Runtime.InteropServices.RuntimeInformation/4.0.0": {
@@ -2827,6 +2878,9 @@
         },
         "compile": {
           "ref/netstandard1.1/System.Runtime.InteropServices.RuntimeInformation.dll": {}
+        },
+        "runtime": {
+          "lib/net45/System.Runtime.InteropServices.RuntimeInformation.dll": {}
         },
         "runtimeTargets": {
           "runtimes/unix/lib/netstandard1.1/System.Runtime.InteropServices.RuntimeInformation.dll": {
@@ -2919,6 +2973,9 @@
         "compile": {
           "ref/netstandard1.6/System.Security.Cryptography.Algorithms.dll": {}
         },
+        "runtime": {
+          "lib/net46/System.Security.Cryptography.Algorithms.dll": {}
+        },
         "runtimeTargets": {
           "runtimes/unix/lib/netstandard1.6/System.Security.Cryptography.Algorithms.dll": {
             "assetType": "runtime",
@@ -2947,6 +3004,9 @@
         },
         "compile": {
           "ref/netstandard1.6/_._": {}
+        },
+        "runtime": {
+          "lib/net46/System.Security.Cryptography.Cng.dll": {}
         },
         "runtimeTargets": {
           "runtimes/unix/lib/netstandard1.6/System.Security.Cryptography.Cng.dll": {
@@ -2979,6 +3039,9 @@
         "compile": {
           "ref/netstandard1.3/_._": {}
         },
+        "runtime": {
+          "lib/net46/System.Security.Cryptography.Csp.dll": {}
+        },
         "runtimeTargets": {
           "runtimes/unix/lib/netstandard1.3/System.Security.Cryptography.Csp.dll": {
             "assetType": "runtime",
@@ -3008,6 +3071,9 @@
         },
         "compile": {
           "ref/netstandard1.3/System.Security.Cryptography.Encoding.dll": {}
+        },
+        "runtime": {
+          "lib/net46/System.Security.Cryptography.Encoding.dll": {}
         },
         "runtimeTargets": {
           "runtimes/unix/lib/netstandard1.3/System.Security.Cryptography.Encoding.dll": {
@@ -3100,6 +3166,9 @@
         "compile": {
           "ref/netstandard1.4/System.Security.Cryptography.X509Certificates.dll": {}
         },
+        "runtime": {
+          "lib/net46/System.Security.Cryptography.X509Certificates.dll": {}
+        },
         "runtimeTargets": {
           "runtimes/unix/lib/netstandard1.6/System.Security.Cryptography.X509Certificates.dll": {
             "assetType": "runtime",
@@ -3144,6 +3213,9 @@
         "compile": {
           "ref/netstandard1.3/System.Security.Principal.Windows.dll": {}
         },
+        "runtime": {
+          "lib/net46/System.Security.Principal.Windows.dll": {}
+        },
         "runtimeTargets": {
           "runtimes/unix/lib/netstandard1.3/System.Security.Principal.Windows.dll": {
             "assetType": "runtime",
@@ -3166,7 +3238,7 @@
           "ref/netstandard1.3/System.Text.Encoding.dll": {}
         },
         "runtime": {
-          "lib/portable-net45+win8+wp8+wpa81/_._": {}
+          "lib/net45/_._": {}
         }
       },
       "System.Text.Encoding.CodePages/4.0.1": {
@@ -3187,6 +3259,9 @@
         },
         "compile": {
           "ref/netstandard1.3/_._": {}
+        },
+        "runtime": {
+          "lib/net46/System.Text.Encoding.CodePages.dll": {}
         },
         "runtimeTargets": {
           "runtimes/unix/lib/netstandard1.3/System.Text.Encoding.CodePages.dll": {
@@ -3211,7 +3286,7 @@
           "ref/netstandard1.3/System.Text.Encoding.Extensions.dll": {}
         },
         "runtime": {
-          "lib/portable-net45+win8+wp8+wpa81/_._": {}
+          "lib/net45/_._": {}
         }
       },
       "System.Text.Encodings.Web/4.0.0": {
@@ -3273,6 +3348,9 @@
         "compile": {
           "ref/netstandard1.3/_._": {}
         },
+        "runtime": {
+          "lib/net46/System.Threading.Overlapped.dll": {}
+        },
         "runtimeTargets": {
           "runtimes/unix/lib/netstandard1.3/System.Threading.Overlapped.dll": {
             "assetType": "runtime",
@@ -3295,7 +3373,7 @@
           "ref/netstandard1.3/System.Threading.Tasks.dll": {}
         },
         "runtime": {
-          "lib/portable-net45+win8+wp8+wpa81/_._": {}
+          "lib/net45/_._": {}
         }
       },
       "System.Threading.Tasks.Dataflow/4.6.0": {
@@ -3387,6 +3465,9 @@
         },
         "compile": {
           "ref/netstandard1.2/System.Threading.Timer.dll": {}
+        },
+        "runtime": {
+          "lib/net451/_._": {}
         }
       },
       "System.Xml.ReaderWriter/4.0.11": {
@@ -4725,6 +4806,21 @@
         "runtimes/win/lib/net46/Microsoft.Win32.Registry.dll",
         "runtimes/win/lib/netcore50/_._",
         "runtimes/win/lib/netstandard1.3/Microsoft.Win32.Registry.dll"
+      ]
+    },
+    "MySql.Data/6.9.9": {
+      "sha512": "rhpv2iJBqvvHU9gkhn/OZfhanQT/jZpfovyO9TEbJl5jLKMvABgxSkIPQbubrvR04M2/ZtdTeI9fC9WSkBe2wA==",
+      "type": "package",
+      "path": "MySql.Data/6.9.9",
+      "files": [
+        "CHANGES",
+        "MySql.Data.6.9.9.nupkg.sha512",
+        "MySql.Data.nuspec",
+        "Readme.txt",
+        "content/app.config.transform",
+        "content/web.config.transform",
+        "lib/net40/MySql.Data.dll",
+        "lib/net45/MySql.Data.dll"
       ]
     },
     "NETStandard.Library/1.6.0": {
@@ -9342,7 +9438,8 @@
       "Microsoft.Extensions.Logging.Console >= 1.0.0",
       "Microsoft.Extensions.Logging.Debug >= 1.0.0",
       "Microsoft.Extensions.Options.ConfigurationExtensions >= 1.0.0",
-      "Microsoft.NETCore.App >= 1.0.1"
+      "Microsoft.NETCore.App >= 1.0.1",
+      "MySql.Data >= 6.9.9"
     ],
     ".NETCoreApp,Version=v1.0": []
   },

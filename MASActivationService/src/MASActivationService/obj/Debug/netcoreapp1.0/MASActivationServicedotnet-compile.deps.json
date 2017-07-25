@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v1.0/",
-    "signature": "3c9b91c95976a8223c80197771f5ee9ee8b2a374"
+    "signature": "89e7e2c12e0cfe7ab972be64152ff3cd5281d0eb"
   },
   "compilationOptions": {
     "defines": [
@@ -28,7 +28,8 @@
           "Microsoft.Extensions.Logging": "1.0.0",
           "Microsoft.Extensions.Logging.Console": "1.0.0",
           "Microsoft.Extensions.Logging.Debug": "1.0.0",
-          "Microsoft.Extensions.Options.ConfigurationExtensions": "1.0.0"
+          "Microsoft.Extensions.Options.ConfigurationExtensions": "1.0.0",
+          "MySql.Data": "6.9.9"
         },
         "compile": {
           "MASActivationService.dll": {}
@@ -1139,6 +1140,11 @@
         },
         "compile": {
           "ref/netstandard1.3/Microsoft.Win32.Registry.dll": {}
+        }
+      },
+      "MySql.Data/6.9.9": {
+        "compile": {
+          "lib/net45/MySql.Data.dll": {}
         }
       },
       "NETStandard.Library/1.6.0": {
@@ -2598,7 +2604,8 @@
           "Microsoft.Extensions.Logging": "1.0.0",
           "Microsoft.Extensions.Logging.Console": "1.0.0",
           "Microsoft.Extensions.Logging.Debug": "1.0.0",
-          "Microsoft.Extensions.Options.ConfigurationExtensions": "1.0.0"
+          "Microsoft.Extensions.Options.ConfigurationExtensions": "1.0.0",
+          "MySql.Data": "6.9.9"
         },
         "runtime": {
           "MASActivationService.dll": {}
@@ -3688,6 +3695,9 @@
           "Microsoft.NETCore.Platforms": "1.0.1",
           "Microsoft.NETCore.Targets": "1.0.1",
           "System.Runtime": "4.1.0"
+        },
+        "runtime": {
+          "lib/net46/Microsoft.Win32.Primitives.dll": {}
         }
       },
       "Microsoft.Win32.Registry/4.0.0": {
@@ -3700,6 +3710,14 @@
           "System.Runtime.Extensions": "4.1.0",
           "System.Runtime.Handles": "4.0.1",
           "System.Runtime.InteropServices": "4.1.0"
+        },
+        "runtime": {
+          "lib/net46/Microsoft.Win32.Registry.dll": {}
+        }
+      },
+      "MySql.Data/6.9.9": {
+        "runtime": {
+          "lib/net45/MySql.Data.dll": {}
         }
       },
       "NETStandard.Library/1.6.0": {
@@ -3960,6 +3978,9 @@
           "System.IO": "4.1.0",
           "System.Runtime": "4.1.0",
           "System.Text.Encoding": "4.0.11"
+        },
+        "runtime": {
+          "lib/net46/System.Console.dll": {}
         }
       },
       "System.Diagnostics.Contracts/4.0.1": {
@@ -4000,6 +4021,9 @@
           "System.Runtime": "4.1.0",
           "System.Runtime.Extensions": "4.1.0",
           "System.Runtime.InteropServices": "4.1.0"
+        },
+        "runtime": {
+          "lib/net46/System.Diagnostics.FileVersionInfo.dll": {}
         }
       },
       "System.Diagnostics.Process/4.1.0": {
@@ -4089,6 +4113,9 @@
           "Microsoft.NETCore.Targets": "1.0.1",
           "System.Globalization": "4.0.11",
           "System.Runtime": "4.1.0"
+        },
+        "runtime": {
+          "lib/net46/System.Globalization.Calendars.dll": {}
         }
       },
       "System.Globalization.Extensions/4.0.1": {
@@ -4099,6 +4126,9 @@
           "System.Runtime": "4.1.0",
           "System.Runtime.Extensions": "4.1.0",
           "System.Runtime.InteropServices": "4.1.0"
+        },
+        "runtime": {
+          "lib/net46/System.Globalization.Extensions.dll": {}
         }
       },
       "System.IO/4.1.0": {
@@ -4126,6 +4156,9 @@
           "System.Threading.Tasks": "4.0.11",
           "runtime.native.System": "4.0.0",
           "runtime.native.System.IO.Compression": "4.1.0"
+        },
+        "runtime": {
+          "lib/net46/System.IO.Compression.dll": {}
         }
       },
       "System.IO.Compression.ZipFile/4.0.1": {
@@ -4151,6 +4184,9 @@
           "System.Runtime.Handles": "4.0.1",
           "System.Text.Encoding": "4.0.11",
           "System.Threading.Tasks": "4.0.11"
+        },
+        "runtime": {
+          "lib/net46/System.IO.FileSystem.dll": {}
         }
       },
       "System.IO.FileSystem.Primitives/4.0.1": {
@@ -4179,6 +4215,9 @@
           "System.Threading.Tasks": "4.0.11",
           "System.Threading.Thread": "4.0.0",
           "runtime.native.System": "4.0.0"
+        },
+        "runtime": {
+          "lib/net46/System.IO.FileSystem.Watcher.dll": {}
         }
       },
       "System.IO.MemoryMappedFiles/4.0.0": {
@@ -4299,6 +4338,9 @@
           "runtime.native.System": "4.0.0",
           "runtime.native.System.Net.Http": "4.0.1",
           "runtime.native.System.Security.Cryptography": "4.0.0"
+        },
+        "runtime": {
+          "lib/net46/System.Net.Http.dll": {}
         }
       },
       "System.Net.NameResolution/4.0.0": {
@@ -4317,6 +4359,9 @@
           "System.Threading": "4.0.11",
           "System.Threading.Tasks": "4.0.11",
           "runtime.native.System": "4.0.0"
+        },
+        "runtime": {
+          "lib/net46/System.Net.NameResolution.dll": {}
         }
       },
       "System.Net.Primitives/4.0.11": {
@@ -4590,6 +4635,9 @@
           "System.Runtime.InteropServices": "4.1.0",
           "System.Threading": "4.0.11",
           "runtime.native.System": "4.0.0"
+        },
+        "runtime": {
+          "lib/net45/System.Runtime.InteropServices.RuntimeInformation.dll": {}
         }
       },
       "System.Runtime.Loader/4.0.0": {
@@ -4651,6 +4699,9 @@
           "System.Security.Cryptography.Primitives": "4.0.0",
           "System.Text.Encoding": "4.0.11",
           "runtime.native.System.Security.Cryptography": "4.0.0"
+        },
+        "runtime": {
+          "lib/net46/System.Security.Cryptography.Algorithms.dll": {}
         }
       },
       "System.Security.Cryptography.Cng/4.2.0": {
@@ -4666,6 +4717,9 @@
           "System.Security.Cryptography.Encoding": "4.0.0",
           "System.Security.Cryptography.Primitives": "4.0.0",
           "System.Text.Encoding": "4.0.11"
+        },
+        "runtime": {
+          "lib/net46/System.Security.Cryptography.Cng.dll": {}
         }
       },
       "System.Security.Cryptography.Csp/4.0.0": {
@@ -4683,6 +4737,9 @@
           "System.Security.Cryptography.Primitives": "4.0.0",
           "System.Text.Encoding": "4.0.11",
           "System.Threading": "4.0.11"
+        },
+        "runtime": {
+          "lib/net46/System.Security.Cryptography.Csp.dll": {}
         }
       },
       "System.Security.Cryptography.Encoding/4.0.0": {
@@ -4699,6 +4756,9 @@
           "System.Security.Cryptography.Primitives": "4.0.0",
           "System.Text.Encoding": "4.0.11",
           "runtime.native.System.Security.Cryptography": "4.0.0"
+        },
+        "runtime": {
+          "lib/net46/System.Security.Cryptography.Encoding.dll": {}
         }
       },
       "System.Security.Cryptography.OpenSsl/4.0.0": {
@@ -4762,6 +4822,9 @@
           "runtime.native.System": "4.0.0",
           "runtime.native.System.Net.Http": "4.0.1",
           "runtime.native.System.Security.Cryptography": "4.0.0"
+        },
+        "runtime": {
+          "lib/net46/System.Security.Cryptography.X509Certificates.dll": {}
         }
       },
       "System.Security.Principal/4.0.1": {
@@ -4788,6 +4851,9 @@
           "System.Security.Principal": "4.0.1",
           "System.Text.Encoding": "4.0.11",
           "System.Threading": "4.0.11"
+        },
+        "runtime": {
+          "lib/net46/System.Security.Principal.Windows.dll": {}
         }
       },
       "System.Text.Encoding/4.0.11": {
@@ -4811,6 +4877,9 @@
           "System.Runtime.InteropServices": "4.1.0",
           "System.Text.Encoding": "4.0.11",
           "System.Threading": "4.0.11"
+        },
+        "runtime": {
+          "lib/net46/System.Text.Encoding.CodePages.dll": {}
         }
       },
       "System.Text.Encoding.Extensions/4.0.11": {
@@ -4863,6 +4932,9 @@
           "System.Resources.ResourceManager": "4.0.1",
           "System.Runtime": "4.1.0",
           "System.Runtime.Handles": "4.0.1"
+        },
+        "runtime": {
+          "lib/net46/System.Threading.Overlapped.dll": {}
         }
       },
       "System.Threading.Tasks/4.0.11": {
@@ -5473,6 +5545,11 @@
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-q+eLtROUAQ3OxYA5mpQrgyFgzLQxIyrfT2eLpYX5IEPlHmIio2nh4F5bgOaQoGOV865kFKZZso9Oq9RlazvXtg=="
+    },
+    "MySql.Data/6.9.9": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-rhpv2iJBqvvHU9gkhn/OZfhanQT/jZpfovyO9TEbJl5jLKMvABgxSkIPQbubrvR04M2/ZtdTeI9fC9WSkBe2wA=="
     },
     "NETStandard.Library/1.6.0": {
       "type": "package",
