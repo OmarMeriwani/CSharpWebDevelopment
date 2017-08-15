@@ -7,9 +7,9 @@ namespace MASActivationService.Models
 {
     public class ActivationRequest
     {
-        public string PCNO { get; set; }
-        public int SoftwareID { get; set; }
-        public string  licenseKey { get; set; }
-        public string IP { get; set; }
+        private string PCNO { get; set; }
+        private int SoftwareID { get; set; }
+        private string  licenseKey { get; set; }
+        private string IP { get; set; }
     }
 }

@@ -36,7 +36,7 @@ namespace MASActivationService
         {
             // Add framework services.
             services.AddApplicationInsightsTelemetry(Configuration);
-
+            //services.AddDbContext<Models.DBContext>(opt => opt.UseInMemoryDatabase());
             services.AddMvc();
         }
 
