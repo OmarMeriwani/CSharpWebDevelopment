@@ -14,6 +14,7 @@ namespace MASActivationService.Controllers
         [HttpGet]
         public IEnumerable<string> Get()
         {
+            Models.MAXSDBContext dbcontext = HttpContext.RequestServices.GetService(typeof(Models.MAXSDBContext)) as Models.MAXSDBContext; ;
             return new string[] { "value1", "value2" };
         }
 

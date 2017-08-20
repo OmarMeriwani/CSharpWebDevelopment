@@ -16,8 +16,8 @@ namespace MASActivationService
         {
             var builder = new ConfigurationBuilder()
                 .SetBasePath(env.ContentRootPath)
-                .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
-                .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true);
+                .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
+                //.AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true);
 
             if (env.IsEnvironment("Development"))
             {
@@ -36,7 +36,8 @@ namespace MASActivationService
         {
             // Add framework services.
             services.AddApplicationInsightsTelemetry(Configuration);
-            //services.AddDbContext<Models.DBContext>(opt => opt.UseInMemoryDatabase());
+            string connectionstring = Configuration.GetConnectionString("DefaultConnection");
+            services.Add(new ServiceDescriptor(typeof(Models.MAXSDBContext), new Models.MAXSDBContext(connectionstring)));
             services.AddMvc();
         }
 
