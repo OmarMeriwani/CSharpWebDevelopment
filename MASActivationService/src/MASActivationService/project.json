@@ -17,7 +17,8 @@
     "Microsoft.Extensions.Logging.Debug": "1.0.0",
     "Microsoft.Extensions.Options.ConfigurationExtensions": "1.0.0",
     "System.Data.Common": "4.1.0",
-    "SapientGuardian.MySql.Data": "6.9.816"  },
+    "SapientGuardian.MySql.Data": "6.9.816",
+    "ChilkatDnCore": "9.5.0.68"  },
 
   "tools": {
     "Microsoft.AspNetCore.Server.IISIntegration.Tools": "1.0.0-preview2-final"

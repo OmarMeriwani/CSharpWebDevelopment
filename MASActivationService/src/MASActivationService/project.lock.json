@@ -3,6 +3,44 @@
   "version": 2,
   "targets": {
     ".NETCoreApp,Version=v1.0": {
+      "ChilkatDnCore/9.5.0.68": {
+        "type": "package",
+        "dependencies": {
+          "ChilkatNativeLib": "9.5.0.68",
+          "Microsoft.NETCore.Platforms": "1.0.1-rc2-24027",
+          "Microsoft.NETCore.Runtime": "1.0.2-rc2-24027",
+          "System.Runtime": "4.1.0-rc2-24027",
+          "System.Runtime.InteropServices": "4.1.0-rc2-24027",
+          "System.Runtime.InteropServices.RuntimeInformation": "4.0.0-rc2-24027"
+        },
+        "compile": {
+          "lib/netstandard1.1/ChilkatDnCore.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.1/ChilkatDnCore.dll": {}
+        }
+      },
+      "ChilkatNativeLib/9.5.0.68": {
+        "type": "package",
+        "runtimeTargets": {
+          "runtimes/linux-x64/native/libchilkatDnCore-9_5_0.so": {
+            "assetType": "native",
+            "rid": "linux-x64"
+          },
+          "runtimes/osx-x64/native/libchilkatDnCore-9_5_0.dylib": {
+            "assetType": "native",
+            "rid": "osx-x64"
+          },
+          "runtimes/win7-x64/native/chilkatDnCore-9_5_0.dll": {
+            "assetType": "native",
+            "rid": "win7-x64"
+          },
+          "runtimes/win7-x86/native/chilkatDnCore-9_5_0.dll": {
+            "assetType": "native",
+            "rid": "win7-x86"
+          }
+        }
+      },
       "Libuv/1.9.0": {
         "type": "package",
         "dependencies": {
@@ -1411,12 +1449,22 @@
           "lib/netstandard1.0/_._": {}
         }
       },
+      "Microsoft.NETCore.Runtime/1.0.2-rc2-24027": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.NETCore.Runtime.CoreCLR": "1.0.2-rc2-24027",
+          "Microsoft.NETCore.Runtime.Native": "1.0.2-rc2-24027"
+        }
+      },
       "Microsoft.NETCore.Runtime.CoreCLR/1.0.4": {
         "type": "package",
         "dependencies": {
           "Microsoft.NETCore.Jit": "1.0.4",
           "Microsoft.NETCore.Windows.ApiSets": "1.0.1"
         }
+      },
+      "Microsoft.NETCore.Runtime.Native/1.0.2-rc2-24027": {
+        "type": "package"
       },
       "Microsoft.NETCore.Targets/1.1.0": {
         "type": "package",
@@ -3688,6 +3736,29 @@
     }
   },
   "libraries": {
+    "ChilkatDnCore/9.5.0.68": {
+      "sha512": "o/iojO0nprKIy+J03Kb+8R9BnV3nxTVPtLqOuQa+5yUnbeU1eqmHoTfLuORywIaaIG2GJRjnCi9JjeQhCXf/YQ==",
+      "type": "package",
+      "path": "ChilkatDnCore/9.5.0.68",
+      "files": [
+        "ChilkatDnCore.9.5.0.68.nupkg.sha512",
+        "ChilkatDnCore.nuspec",
+        "lib/netstandard1.1/ChilkatDnCore.dll"
+      ]
+    },
+    "ChilkatNativeLib/9.5.0.68": {
+      "sha512": "m0LR5iir7CDol+7s5+JHV6YMjSCZ6zuE6D/ZpzJvU/+zwG6vi2L26nR95Ccd8UiklGHQMTyHLhJKgIdryLik3w==",
+      "type": "package",
+      "path": "ChilkatNativeLib/9.5.0.68",
+      "files": [
+        "ChilkatNativeLib.9.5.0.68.nupkg.sha512",
+        "ChilkatNativeLib.nuspec",
+        "runtimes/linux-x64/native/libchilkatDnCore-9_5_0.so",
+        "runtimes/osx-x64/native/libchilkatDnCore-9_5_0.dylib",
+        "runtimes/win7-x64/native/chilkatDnCore-9_5_0.dll",
+        "runtimes/win7-x86/native/chilkatDnCore-9_5_0.dll"
+      ]
+    },
     "Libuv/1.9.0": {
       "sha512": "9Q7AaqtQhS8JDSIvRBt6ODSLWDBI4c8YxNxyCQemWebBFUtBbc6M5Vi5Gz1ZyIUlTW3rZK9bIr5gnVyv0z7a2Q==",
       "type": "package",
@@ -4769,6 +4840,17 @@
         "runtime.json"
       ]
     },
+    "Microsoft.NETCore.Runtime/1.0.2-rc2-24027": {
+      "sha512": "z/R3npq0vJi1urIComaxGXX2CCfv27N78pNa3dMG4fyCQZA6u50v8ttWFnPV1caSN1O5JvDavqpBXVT1FdHcrA==",
+      "type": "package",
+      "path": "Microsoft.NETCore.Runtime/1.0.2-rc2-24027",
+      "files": [
+        "Microsoft.NETCore.Runtime.1.0.2-rc2-24027.nupkg.sha512",
+        "Microsoft.NETCore.Runtime.nuspec",
+        "ThirdPartyNotices.txt",
+        "dotnet_library_license.txt"
+      ]
+    },
     "Microsoft.NETCore.Runtime.CoreCLR/1.0.4": {
       "sha512": "r4/aP7VYcJ+W/rJVFU+jAdjF4KrsHRDYQJ+p8weUP5n65yLzWXlQTVY6OsR560aV5EF7jc65dqsNXIryUCrEkQ==",
       "type": "package",
@@ -4779,6 +4861,17 @@
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "runtime.json"
+      ]
+    },
+    "Microsoft.NETCore.Runtime.Native/1.0.2-rc2-24027": {
+      "sha512": "aUtA5PJE7rGp0v6aKdYefj8GGpbf5nsND7xlMzPf0+n00YeYuM65sQtrd3TwtQlfmN4J57d40wfzEM3suVwWlg==",
+      "type": "package",
+      "path": "Microsoft.NETCore.Runtime.Native/1.0.2-rc2-24027",
+      "files": [
+        "Microsoft.NETCore.Runtime.Native.1.0.2-rc2-24027.nupkg.sha512",
+        "Microsoft.NETCore.Runtime.Native.nuspec",
+        "ThirdPartyNotices.txt",
+        "dotnet_library_license.txt"
       ]
     },
     "Microsoft.NETCore.Targets/1.1.0": {
@@ -9626,6 +9719,7 @@
   },
   "projectFileDependencyGroups": {
     "": [
+      "ChilkatDnCore >= 9.5.0.68",
       "Microsoft.ApplicationInsights.AspNetCore >= 1.0.0",
       "Microsoft.AspNetCore.Mvc >= 1.0.1",
       "Microsoft.AspNetCore.Routing >= 1.0.1",
