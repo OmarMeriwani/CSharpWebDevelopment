@@ -14,8 +14,23 @@ namespace MASActivationService.Controllers
         [HttpGet]
         public IEnumerable<string> Get()
         {
-            Models.MAXSDBContext dbcontext = HttpContext.RequestServices.GetService(typeof(Models.MAXSDBContext)) as Models.MAXSDBContext; ;
-            return new string[] { "value1", "value2" };
+            try
+            {
+                Models.MAXSDBContext dbcontext = HttpContext.RequestServices.GetService(typeof(Models.MAXSDBContext)) as Models.MAXSDBContext; ;
+                bool a = dbcontext.Register("TESTKey", 1, "77777", "77777", "77777", "Omar.Sirwan", "15.15.15.15");
+                return new string[] { a.ToString(), "value32" };
+            }
+            catch (Exception ex)
+            {
+                return new string[] { ex.Message, "value32" };
+            }
+
+        }
+        [HttpGet]
+        public string Omar()
+        {
+
+            return "";
         }
 
         // GET api/values/5
@@ -35,6 +50,7 @@ namespace MASActivationService.Controllers
         [HttpPut("{id}")]
         public void Put(int id, [FromBody]string value)
         {
+
         }
 
         // DELETE api/values/5
