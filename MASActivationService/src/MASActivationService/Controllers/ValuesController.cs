@@ -14,23 +14,31 @@ namespace MASActivationService.Controllers
         [HttpGet]
         public IEnumerable<string> Get()
         {
+            return new string[] {"haha","hahaha" };
+        }
+        [HttpGet]
+        public IEnumerable<string> Register(string encrypted)
+        {
             try
             {
+
+                string decrypted = Crypt.Decrypt(encrypted, "1pGSlwmWijRZmkTdVLLgc3sUs0YckDU46XrwPHszBYsjzdpxpNyIrTBFMwIvOzYs");
+                string[] decr = decrypted.Split(';');
+                string Key = decr[0];
+                int SoftwareID = Convert.ToInt32(decr[1]);
+                string PCNO = decr[2];
+                string EMAIL = decr[3];
+                string Phone = decr[4];
+                string ActivationUser = decr[5];
+                string IP = decr[6];
                 Models.MAXSDBContext dbcontext = HttpContext.RequestServices.GetService(typeof(Models.MAXSDBContext)) as Models.MAXSDBContext; ;
-                bool a = dbcontext.Register("TESTKey", 1, "77777", "77777", "77777", "Omar.Sirwan", "15.15.15.15");
-                return new string[] { a.ToString(), "value32" };
+                bool a = dbcontext.Register(Key, SoftwareID, PCNO,EMAIL, Phone, ActivationUser, IP);
+                return new string[] { a.ToString() };
             }
             catch (Exception ex)
             {
-                return new string[] { ex.Message, "value32" };
+                return new string[] { ex.Message };
             }
-
-        }
-        [HttpGet]
-        public string Omar()
-        {
-
-            return "";
         }
 
         // GET api/values/5
