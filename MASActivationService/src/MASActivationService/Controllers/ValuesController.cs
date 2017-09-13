@@ -1,51 +1,92 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Microsoft.AspNetCore.WebUtilities;
 using System.Threading.Tasks;
+using System.Net;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using MySql.Data.MySqlClient;
 
 namespace MASActivationService.Controllers
 {
+
     [Route("api/[controller]")]
     public class ValuesController : Controller
     {
+        private readonly ILogger _logger;
+        Models.MAXSDBContext dbcontext;
+        public ValuesController(Models.MAXSDBContext dbcontex, ILogger<ValuesController> logger)
+        {
+            dbcontext = dbcontext;
+            _logger = logger;
+        }
+        string EncodeNonUTFCharacters(string text)
+        {
+            return text.Replace("%", "hahahahahahahah");
+        }
+        string DecodeNonUTFCharacters(string text)
+        {
+            return text.Replace( "hahahahahahahah", "%");
+        }
         // GET api/values
         [HttpGet]
         public IEnumerable<string> Get()
         {
-            return new string[] {"haha","hahaha" };
+            _logger.LogInformation("started");
+            string encr = Crypt.Encrypt("aaahhhqqqq;1;nbnbnnnbnPCNO;omar.sirwan@korektel.com;9647507700138;omar.sirwan;10.10.92.143;1;", "E546C8DF278CD5931069B522E695D4F2");
+            string decrp = Crypt.Decrypt(encr, "E546C8DF278CD5931069B522E695D4F2");
+            String output = WebUtility.UrlEncode(encr);
+            return new string[] { " ", (EncodeNonUTFCharacters(output)) };
         }
-        [HttpGet]
-        public IEnumerable<string> Register(string encrypted)
+
+
+        // GET api/values/5
+        [HttpGet("{id}")]
+        public string Get(string id)
         {
+            string error = "";
             try
             {
+                string text = id;
+                error = "Decode1";
+                text = DecodeNonUTFCharacters(text);
+                error = "Decode2";
+                text = WebUtility.UrlDecode(text);
+                error = "Decryption";
+                string decrypted = Crypt.Decrypt(text, "E546C8DF278CD5931069B522E695D4F2");
 
-                string decrypted = Crypt.Decrypt(encrypted, "1pGSlwmWijRZmkTdVLLgc3sUs0YckDU46XrwPHszBYsjzdpxpNyIrTBFMwIvOzYs");
+                error = "Split";
                 string[] decr = decrypted.Split(';');
                 string Key = decr[0];
+                error = "Get SoftwareID";
                 int SoftwareID = Convert.ToInt32(decr[1]);
                 string PCNO = decr[2];
                 string EMAIL = decr[3];
                 string Phone = decr[4];
                 string ActivationUser = decr[5];
                 string IP = decr[6];
-                Models.MAXSDBContext dbcontext = HttpContext.RequestServices.GetService(typeof(Models.MAXSDBContext)) as Models.MAXSDBContext; ;
-                bool a = dbcontext.Register(Key, SoftwareID, PCNO,EMAIL, Phone, ActivationUser, IP);
-                return new string[] { a.ToString() };
+                string Type = decr[7];
+                error = "HttpContext GetService";
+                 dbcontext = HttpContext.RequestServices.GetService(typeof(Models.MAXSDBContext)) as Models.MAXSDBContext; ;
+                
+                bool a = false;
+                if (Type == "1")
+                {
+                    error = "CheckLicense";
+                    a = dbcontext.CheckLicense(Key, SoftwareID, PCNO, EMAIL, Phone, ActivationUser, IP);
+                }
+                if (Type == "2")
+                {
+                    error = "Register";
+                    a = dbcontext.Register(Key, SoftwareID, PCNO, EMAIL, Phone, ActivationUser, IP);
+                }
+                return a.ToString();
             }
             catch (Exception ex)
             {
-                return new string[] { ex.Message };
+                return (error + " Error:" + ex.Message);
             }
-        }
-
-        // GET api/values/5
-        [HttpGet("{id}")]
-        public string Get(int id)
-        {
-            return "value";
         }
 
         // POST api/values

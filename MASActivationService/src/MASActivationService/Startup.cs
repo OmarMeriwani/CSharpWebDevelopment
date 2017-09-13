@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Microsoft.AspNetCore.DataProtection;
 
 namespace MASActivationService
 {
@@ -14,10 +15,11 @@ namespace MASActivationService
     {
         public Startup(IHostingEnvironment env)
         {
+#pragma warning disable CS1701 // Assuming assembly reference matches identity
             var builder = new ConfigurationBuilder()
                 .SetBasePath(env.ContentRootPath)
                 .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
-                //.AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true);
+            //.AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true);
 
             if (env.IsEnvironment("Development"))
             {
@@ -27,6 +29,8 @@ namespace MASActivationService
 
             builder.AddEnvironmentVariables();
             Configuration = builder.Build();
+#pragma warning restore CS1701 // Assuming assembly reference matches identity
+
         }
 
         public IConfigurationRoot Configuration { get; }
@@ -34,11 +38,17 @@ namespace MASActivationService
         // This method gets called by the runtime. Use this method to add services to the container
         public void ConfigureServices(IServiceCollection services)
         {
+#pragma warning disable CS1701 // Assuming assembly reference matches identity
             // Add framework services.
             services.AddApplicationInsightsTelemetry(Configuration);
             string connectionstring = Configuration.GetConnectionString("DefaultConnection");
-            services.Add(new ServiceDescriptor(typeof(Models.MAXSDBContext), new Models.MAXSDBContext(connectionstring)));
+            services.AddDataProtection().SetDefaultKeyLifetime(new TimeSpan(14,1,1,0)) ;
+            var ss = services.BuildServiceProvider();
+            var instance = ActivatorUtilities.CreateInstance<Models.MAXSDBContext>( ss, connectionstring);
+
+            services.Add(new ServiceDescriptor(typeof(Models.MAXSDBContext), instance));
             services.AddMvc();
+#pragma warning restore CS1701 // Assuming assembly reference matches identity
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline
@@ -46,7 +56,8 @@ namespace MASActivationService
         {
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
-
+            
+            
             app.UseApplicationInsightsRequestTelemetry();
 
             app.UseApplicationInsightsExceptionTelemetry();
