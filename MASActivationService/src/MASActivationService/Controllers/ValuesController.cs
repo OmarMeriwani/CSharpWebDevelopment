@@ -33,11 +33,12 @@ namespace MASActivationService.Controllers
         [HttpGet]
         public IEnumerable<string> Get()
         {
+            
             _logger.LogInformation("started");
-            string encr = Crypt.Encrypt("aaahhhqqqq;1;nbnbnnnbnPCNO;omar.sirwan@korektel.com;9647507700138;omar.sirwan;10.10.92.143;1;", "E546C8DF278CD5931069B522E695D4F2");
-            string decrp = Crypt.Decrypt(encr, "E546C8DF278CD5931069B522E695D4F2");
-            String output = WebUtility.UrlEncode(encr);
-            return new string[] { " ", (EncodeNonUTFCharacters(output)) };
+            //string encr = Crypt.Encrypt("aaahhhqqqq;1;nbnbnnnbnPCNO;omar.sirwan@korektel.com;9647507700138;omar.sirwan;10.10.92.143;1;", "E546C8DF278CD5931069B522E695D4F2");
+            //string decrp = Crypt.Decrypt(encr, "E546C8DF278CD5931069B522E695D4F2");
+            //String output = WebUtility.UrlEncode(encr);
+            return new string[] { " ", "" };
         }
 
 

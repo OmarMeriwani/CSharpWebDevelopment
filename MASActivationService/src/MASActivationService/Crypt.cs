@@ -5,16 +5,64 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Cryptography.KeyDerivation;
 using System.Text;
 using System.IO;
+using System.Security.Cryptography;
 namespace MASActivationService
 {
     public class Crypt
     {
-        
+        //public static System.Security.Cryptography.MD5CryptoServiceProvider hashmd5;
+        //public static TripleDESCryptoServiceProvider des = new TripleDESCryptoServiceProvider();
+
+        //public static byte[] pwdhash;
+        //public static string Encrypt(string OriginalString)
+        //{
+        //    try
+        //    {
+        //        des.Mode = CipherMode.ECB;
+        //        hashmd5 = new MD5CryptoServiceProvider();
+        //        pwdhash = hashmd5.ComputeHash(ASCIIEncoding.GetEncoding(720).GetBytes("omarsirwan"));
+        //        des.Key = pwdhash;
+
+        //        byte[] buff = ASCIIEncoding.GetEncoding(720).GetBytes(OriginalString);
+        //        return Convert.ToBase64String(des.CreateEncryptor().TransformFinalBlock(buff, 0, buff.Length));
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        return "error";
+        //    }
+
+        //}
+        //public static string Decrypt(string EncryptedString)
+        //{
+
+        //    des.Mode = CipherMode.ECB;
+        //    hashmd5 = new MD5CryptoServiceProvider();
+        //    pwdhash = hashmd5.ComputeHash(ASCIIEncoding.GetEncoding(720).GetBytes("omarsirwan"));
+        //    des.Key = pwdhash;
+
+        //    byte[] buff = Convert.FromBase64String(EncryptedString);
+        //    try
+        //    {
+        //        return ASCIIEncoding.GetEncoding(720).GetString(des.CreateDecryptor().TransformFinalBlock(buff, 0, buff.Length));
+        //    }
+        //    catch (Exception CryptographicException)
+        //    {
+        //        return "error";
+        //    }
+        //}
+
+
+
 
         public static string Encrypt(string text, string keyString)
         {
             try
             {
+                using (var md5 = MD5.Create())
+                {
+                    var result = md5.ComputeHash(Encoding.ASCII.GetBytes(input));
+                    return Encoding.ASCII.GetString(result);
+                }
 
             }
             catch (Exception ex)
