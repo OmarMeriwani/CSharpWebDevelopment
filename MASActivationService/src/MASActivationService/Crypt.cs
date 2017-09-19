@@ -12,7 +12,27 @@ namespace MASActivationService
     {
         //public static System.Security.Cryptography.MD5CryptoServiceProvider hashmd5;
         //public static TripleDESCryptoServiceProvider des = new TripleDESCryptoServiceProvider();
+        public static string encrypt(string word)
+        {
 
+            // generate a 128-bit salt using a secure PRNG
+            byte[] salt = new byte[128 / 8];
+            using (var rng = RandomNumberGenerator.Create())
+            {
+                rng.GetBytes(salt);
+            }
+            Console.WriteLine($"Salt: {Convert.ToBase64String(salt)}");
+            
+            // derive a 256-bit subkey (use HMACSHA1 with 10,000 iterations)
+            string hashed = Convert.ToBase64String(KeyDerivation.Pbkdf2(
+                password: word,
+                salt: salt,
+                prf: KeyDerivationPrf.HMACSHA1,
+                iterationCount: 10000,
+                numBytesRequested: 256 / 8));
+            Console.WriteLine($"Hashed: {hashed}");
+            return hashed;
+        }
         //public static byte[] pwdhash;
         //public static string Encrypt(string OriginalString)
         //{
@@ -54,51 +74,51 @@ namespace MASActivationService
 
 
 
-        public static string Encrypt(string text, string keyString)
-        {
-            try
-            {
-                using (var md5 = MD5.Create())
-                {
-                    var result = md5.ComputeHash(Encoding.ASCII.GetBytes(input));
-                    return Encoding.ASCII.GetString(result);
-                }
+        //public static string Encrypt(string text, string keyString)
+        //{
+        //    try
+        //    {
+        //        using (var md5 = MD5.Create())
+        //        {
+        //            var result = md5.ComputeHash(Encoding.ASCII.GetBytes(input));
+        //            return Encoding.ASCII.GetString(result);
+        //        }
 
-            }
-            catch (Exception ex)
-            {
+        //    }
+        //    catch (Exception ex)
+        //    {
 
-            }
-            try
-            {
-                //var key = Encoding.UTF8.GetBytes(keyString);
-                //using (var aesAlg = Aes.Create())
-                //{
-                //    using (var encryptor = aesAlg.CreateEncryptor(key, aesAlg.IV))
-                //    {
-                //        using (var msEncrypt = new MemoryStream())
-                //        {
-                //            using (var csEncrypt = new CryptoStream(msEncrypt, encryptor, CryptoStreamMode.Write))
-                //            using (var swEncrypt = new StreamWriter(csEncrypt))
-                //            {
-                //                swEncrypt.Write(text);
-                //            }
-                //            var iv = aesAlg.IV;
-                //            var decryptedContent = msEncrypt.ToArray();
-                //            var result = new byte[iv.Length + decryptedContent.Length];
-                //            Buffer.BlockCopy(iv, 0, result, 0, iv.Length);
-                //            Buffer.BlockCopy(decryptedContent, 0, result, iv.Length, decryptedContent.Length);
-                //            return Convert.ToBase64String(result);
-                //        }
-                //    }
-                //}
-                return "";
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
+        //    }
+        //    try
+        //    {
+        //        //var key = Encoding.UTF8.GetBytes(keyString);
+        //        //using (var aesAlg = Aes.Create())
+        //        //{
+        //        //    using (var encryptor = aesAlg.CreateEncryptor(key, aesAlg.IV))
+        //        //    {
+        //        //        using (var msEncrypt = new MemoryStream())
+        //        //        {
+        //        //            using (var csEncrypt = new CryptoStream(msEncrypt, encryptor, CryptoStreamMode.Write))
+        //        //            using (var swEncrypt = new StreamWriter(csEncrypt))
+        //        //            {
+        //        //                swEncrypt.Write(text);
+        //        //            }
+        //        //            var iv = aesAlg.IV;
+        //        //            var decryptedContent = msEncrypt.ToArray();
+        //        //            var result = new byte[iv.Length + decryptedContent.Length];
+        //        //            Buffer.BlockCopy(iv, 0, result, 0, iv.Length);
+        //        //            Buffer.BlockCopy(decryptedContent, 0, result, iv.Length, decryptedContent.Length);
+        //        //            return Convert.ToBase64String(result);
+        //        //        }
+        //        //    }
+        //        //}
+        //        return "";
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        throw ex;
+        //    }
+        //}
         public static string Decrypt(string cipherText, string keyString)
         {
             //try

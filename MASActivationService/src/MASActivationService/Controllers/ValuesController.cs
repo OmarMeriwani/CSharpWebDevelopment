@@ -18,16 +18,9 @@ namespace MASActivationService.Controllers
         Models.MAXSDBContext dbcontext;
         public ValuesController(Models.MAXSDBContext dbcontex, ILogger<ValuesController> logger)
         {
-            dbcontext = dbcontext;
+            dbcontext = dbcontex;
             _logger = logger;
-        }
-        string EncodeNonUTFCharacters(string text)
-        {
-            return text.Replace("%", "hahahahahahahah");
-        }
-        string DecodeNonUTFCharacters(string text)
-        {
-            return text.Replace( "hahahahahahahah", "%");
+           
         }
         // GET api/values
         [HttpGet]
@@ -35,10 +28,10 @@ namespace MASActivationService.Controllers
         {
             
             _logger.LogInformation("started");
-            //string encr = Crypt.Encrypt("aaahhhqqqq;1;nbnbnnnbnPCNO;omar.sirwan@korektel.com;9647507700138;omar.sirwan;10.10.92.143;1;", "E546C8DF278CD5931069B522E695D4F2");
-            //string decrp = Crypt.Decrypt(encr, "E546C8DF278CD5931069B522E695D4F2");
-            //String output = WebUtility.UrlEncode(encr);
-            return new string[] { " ", "" };
+            string encr = Crypt.encrypt("aaahhhqqqq;1;nbnbnnnbnPCNO;omar.sirwan@korektel.com;9647507700138;omar.sirwan;10.10.92.143;1;");
+            string decrp = Crypt.encrypt(encr);
+            String output = WebUtility.UrlEncode(encr);
+            return new string[] { decrp, encr };
         }
 
 
@@ -50,15 +43,14 @@ namespace MASActivationService.Controllers
             try
             {
                 string text = id;
-                error = "Decode1";
-                text = DecodeNonUTFCharacters(text);
-                error = "Decode2";
+              
+                error = "Decode";
                 text = WebUtility.UrlDecode(text);
-                error = "Decryption";
-                string decrypted = Crypt.Decrypt(text, "E546C8DF278CD5931069B522E695D4F2");
+                //error = "Decryption";
+                //string decrypted = Crypt.Decrypt(text, "E546C8DF278CD5931069B522E695D4F2");
 
                 error = "Split";
-                string[] decr = decrypted.Split(';');
+                string[] decr = text.Split(';');
                 string Key = decr[0];
                 error = "Get SoftwareID";
                 int SoftwareID = Convert.ToInt32(decr[1]);
