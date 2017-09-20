@@ -12,11 +12,11 @@ namespace MASActivationService.Controllers
 {
 
     [Route("api/[controller]")]
-    public class ValuesController : Controller
+    public class ActivationController : Controller
     {
         private readonly ILogger _logger;
         Models.MAXSDBContext dbcontext;
-        public ValuesController(Models.MAXSDBContext dbcontex, ILogger<ValuesController> logger)
+        public ActivationController(Models.MAXSDBContext dbcontex, ILogger<ActivationController> logger)
         {
             dbcontext = dbcontex;
             _logger = logger;
@@ -28,8 +28,8 @@ namespace MASActivationService.Controllers
         {
             
             _logger.LogInformation("started");
-            string encr = Crypt.encrypt("aaahhhqqqq;1;nbnbnnnbnPCNO;omar.sirwan@korektel.com;9647507700138;omar.sirwan;10.10.92.143;1;");
-            string decrp = Crypt.encrypt(encr);
+            string encr = Crypt.passwordEncrypt("aaahhhqqqq;1;nbnbnnnbnPCNO;omar.sirwan@korektel.com;9647507700138;omar.sirwan;10.10.92.143;1;","omarSirwan");
+            string decrp = Crypt.passwordDecrypt(encr, "omarSirwan");
             String output = WebUtility.UrlEncode(encr);
             return new string[] { decrp, encr };
         }

@@ -18,8 +18,6 @@ namespace MASActivationService
                 .UseIISIntegration()
                 .UseStartup<Startup>()
                 .Build();
-            Chilkat.Rest rest = new Chilkat.Rest();
-            Console.WriteLine(rest.Version);
             //rest.Version = "9.5.0.68"
 
             host.Run();

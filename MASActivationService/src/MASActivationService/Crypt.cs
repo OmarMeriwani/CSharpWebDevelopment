@@ -33,6 +33,85 @@ namespace MASActivationService
             Console.WriteLine($"Hashed: {hashed}");
             return hashed;
         }
+        public static string passwordEncrypt(string inText, string key)
+        {
+            byte[] bytesBuff = Encoding.Unicode.GetBytes(inText);
+            using (Aes aes = Aes.Create())
+            {
+                Rfc2898DeriveBytes crypto = new Rfc2898DeriveBytes(key, new byte[] { 0x49, 0x76, 0x61, 0x6e, 0x20, 0x4d, 0x65, 0x64, 0x76, 0x65, 0x64, 0x65, 0x76 });
+                aes.Key = crypto.GetBytes(32);
+                aes.IV = crypto.GetBytes(16);
+                using (MemoryStream mStream = new MemoryStream())
+                {
+                    using (CryptoStream cStream = new CryptoStream(mStream, aes.CreateEncryptor(), CryptoStreamMode.Write))
+                    {
+                        cStream.Write(bytesBuff, 0, bytesBuff.Length);
+                        cStream.Dispose();
+                    }
+                    inText = Convert.ToBase64String(mStream.ToArray());
+                }
+            }
+            return inText;
+        }
+        //Decrypting a string
+        public static string passwordDecrypt(string cryptTxt, string key)
+        {
+            cryptTxt = cryptTxt.Replace(" ", "+");
+            byte[] bytesBuff = Convert.FromBase64String(cryptTxt);
+            using (Aes aes = Aes.Create())
+            {
+                Rfc2898DeriveBytes crypto = new Rfc2898DeriveBytes(key, new byte[] { 0x49, 0x76, 0x61, 0x6e, 0x20, 0x4d, 0x65, 0x64, 0x76, 0x65, 0x64, 0x65, 0x76 });
+                aes.Key = crypto.GetBytes(32);
+                aes.IV = crypto.GetBytes(16);
+                using (MemoryStream mStream = new MemoryStream())
+                {
+                    using (CryptoStream cStream = new CryptoStream(mStream, aes.CreateDecryptor(), CryptoStreamMode.Write))
+                    {
+                        cStream.Write(bytesBuff, 0, bytesBuff.Length);
+                        cStream.Dispose();
+                    }
+                    cryptTxt = Encoding.Unicode.GetString(mStream.ToArray());
+                }
+            }
+            return cryptTxt;
+        }
+        //public static string FunForEncrypt(string objText, string objKeycode)
+        //{
+        //    byte[] objInitVectorBytes = Encoding.UTF8.GetBytes("HR$2pIjHR$2pIj12");
+        //    byte[] objPlainTextBytes = Encoding.UTF8.GetBytes(objText);
+        //    //PasswordDeriveBytes objPassword = new PasswordDeriveBytes(objKeycode, null);
+        //    byte[] objKeyBytes = objKeycode.GetBytes(256 / 8);
+        //    RijndaelManaged objSymmetricKey = new RijndaelManaged();
+        //    objSymmetricKey.Mode = CipherMode.CBC;
+        //    ICryptoTransform objEncryptor = objSymmetricKey.CreateEncryptor(objKeyBytes, objInitVectorBytes);
+        //    MemoryStream objMemoryStream = new MemoryStream();
+        //    CryptoStream objCryptoStream = new CryptoStream(objMemoryStream, objEncryptor, CryptoStreamMode.Write);
+        //    objCryptoStream.Write(objPlainTextBytes, 0, objPlainTextBytes.Length);
+        //    objCryptoStream.FlushFinalBlock();
+        //    byte[] objEncrypted = objMemoryStream.ToArray();
+        //    objMemoryStream.Close();
+        //    objCryptoStream.Close();
+        //    return Convert.ToBase64String(objEncrypted);
+        //}
+
+        //public static string FunForDecrypt(string EncryptedText, string Key)
+        //{
+        //    byte[] objInitVectorBytes = Encoding.ASCII.GetBytes("HR$2pIjHR$2pIj12");
+        //    byte[] objDeEncryptedText = Convert.FromBase64String(EncryptedText);
+        //    PasswordDeriveBytes objPassword = new PasswordDeriveBytes(Key, null);
+        //    byte[] objKeyBytes = objPassword.GetBytes(256 / 8);
+        //    RijndaelManaged objSymmetricKey = new RijndaelManaged();
+        //    objSymmetricKey.Mode = CipherMode.CBC;
+        //    ICryptoTransform objDecryptor = objSymmetricKey.CreateDecryptor(objKeyBytes, objInitVectorBytes);
+        //    MemoryStream objMemoryStream = new MemoryStream(objDeEncryptedText);
+        //    CryptoStream objCryptoStream = new CryptoStream(objMemoryStream, objDecryptor, CryptoStreamMode.Read);
+        //    byte[] objPlainTextBytes = new byte[objDeEncryptedText.Length];
+        //    int objDecryptedByteCount = objCryptoStream.Read(objPlainTextBytes, 0, objPlainTextBytes.Length);
+        //    objMemoryStream.Close();
+        //    objCryptoStream.Close();
+        //    return Encoding.UTF8.GetString(objPlainTextBytes, 0, objDecryptedByteCount);
+        //}
+
         //public static byte[] pwdhash;
         //public static string Encrypt(string OriginalString)
         //{

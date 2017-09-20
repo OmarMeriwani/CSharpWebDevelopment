@@ -18,7 +18,6 @@
     "Microsoft.Extensions.Options.ConfigurationExtensions": "1.0.0",
     "System.Data.Common": "4.1.0",
     "SapientGuardian.MySql.Data": "6.9.816",
-    "ChilkatDnCore": "9.5.0.68",
     "Microsoft.AspNet.WebUtilities": "1.0.0-rc1-final",
     "Microsoft.AspNetCore.Cryptography.KeyDerivation": "1.0.0-rc2-final"  },
 

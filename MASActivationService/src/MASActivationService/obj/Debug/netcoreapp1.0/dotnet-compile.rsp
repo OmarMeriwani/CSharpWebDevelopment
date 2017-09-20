@@ -13,7 +13,6 @@
 --version:1.0.0.0
 --informational-version:1.0.0
 --target-framework:.NETCoreApp,Version=v1.0
---reference:C:\Users\omar.sirwan\.nuget\packages\ChilkatDnCore\9.5.0.68\lib\netstandard1.1\ChilkatDnCore.dll
 --reference:C:\Users\omar.sirwan\.nuget\packages\Microsoft.ApplicationInsights\2.1.0\lib\dotnet5.4\Microsoft.ApplicationInsights.dll
 --reference:C:\Users\omar.sirwan\.nuget\packages\Microsoft.ApplicationInsights.AspNetCore\1.0.0\lib\netstandard1.6\Microsoft.ApplicationInsights.AspNetCore.dll
 --reference:C:\Users\omar.sirwan\.nuget\packages\Microsoft.AspNet.WebUtilities\1.0.0-rc1-final\lib\dotnet5.4\Microsoft.AspNet.WebUtilities.dll
@@ -188,8 +187,8 @@
 C:\Users\omar.sirwan\Documents\GitHub\CSharpWebDevelopment\MASActivationService\src\MASActivationService\Crypt.cs
 C:\Users\omar.sirwan\Documents\GitHub\CSharpWebDevelopment\MASActivationService\src\MASActivationService\Program.cs
 C:\Users\omar.sirwan\Documents\GitHub\CSharpWebDevelopment\MASActivationService\src\MASActivationService\Startup.cs
+C:\Users\omar.sirwan\Documents\GitHub\CSharpWebDevelopment\MASActivationService\src\MASActivationService\Controllers\ActivationController.cs
 C:\Users\omar.sirwan\Documents\GitHub\CSharpWebDevelopment\MASActivationService\src\MASActivationService\Controllers\ActivationService.cs
 C:\Users\omar.sirwan\Documents\GitHub\CSharpWebDevelopment\MASActivationService\src\MASActivationService\Controllers\HomeController.cs
-C:\Users\omar.sirwan\Documents\GitHub\CSharpWebDevelopment\MASActivationService\src\MASActivationService\Controllers\ValuesController.cs
 C:\Users\omar.sirwan\Documents\GitHub\CSharpWebDevelopment\MASActivationService\src\MASActivationService\Models\ActivationRequest.cs
 C:\Users\omar.sirwan\Documents\GitHub\CSharpWebDevelopment\MASActivationService\src\MASActivationService\Models\MAXSDBContext.cs
