@@ -16,11 +16,7 @@
     "Microsoft.Extensions.Logging.Console": "1.0.0",
     "Microsoft.Extensions.Logging.Debug": "1.0.0",
     "Microsoft.Extensions.Options.ConfigurationExtensions": "1.0.0",
-    "System.Data.Common": "4.1.0",
-    "SapientGuardian.MySql.Data": "6.9.816",
-    "Microsoft.AspNet.WebUtilities": "1.0.0-rc1-final",
-    "Microsoft.AspNetCore.Cryptography.KeyDerivation": "1.0.0-rc2-final",
-    "Newtonsoft.Json": "10.0.3"
+    "SapientGuardian.MySql.Data": "6.9.816"
   },
 
   "tools": {
@@ -35,17 +31,6 @@
       ]
     }
   },
-  "frameworks": {
-    "netcoreapp1.0": {
-      "imports": [
-        "dotnet5.6",
-        "dnxcore50",
-        "net46",
-        "portable-net45+win8"
-      ]
-    }
-  },
-
 
   "buildOptions": {
     "emitEntryPoint": true,
@@ -56,11 +41,6 @@
     "configProperties": {
       "System.GC.Server": true
     }
-  },
-  "runtimes": {
-    "win7-x64": {},
-    "centos.6.8-x64": {},
-    "ubuntu.16.04-x64": {}
   },
 
   "publishOptions": {

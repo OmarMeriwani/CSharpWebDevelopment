@@ -7,10 +7,8 @@ using System.Net;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using MySql.Data.MySqlClient;
-
-namespace MASActivationService.Controllers
+namespace MASService3.Controllers
 {
-
     [Route("api/[controller]")]
     public class ActivationController : Controller
     {
@@ -20,13 +18,13 @@ namespace MASActivationService.Controllers
         {
             dbcontext = dbcontex;
             _logger = logger;
-           
+
         }
         // GET api/values
         [HttpGet]
         public IEnumerable<string> Get()
         {
-            
+
             _logger.LogInformation("started");
             //string encr = Crypt.passwordEncrypt("aaahhhqqqq;1;nbnbnnnbnPCNO;omar.sirwan@korektel.com;9647507700138;omar.sirwan;10.10.92.143;1;","omarSirwan");
             //string decrp = Crypt.passwordDecrypt(encr, "omarSirwan");
@@ -43,7 +41,7 @@ namespace MASActivationService.Controllers
             try
             {
                 string text = id;
-              
+
                 error = "Decode";
                 text = Crypt.passwordDecrypt(text, "E546C8DF278CD5931069B522E695D4F2");
                 //error = "Decryption";
@@ -61,8 +59,8 @@ namespace MASActivationService.Controllers
                 string IP = decr[6];
                 string Type = decr[7];
                 error = "HttpContext GetService";
-                 dbcontext = HttpContext.RequestServices.GetService(typeof(Models.MAXSDBContext)) as Models.MAXSDBContext; ;
-                
+                dbcontext = HttpContext.RequestServices.GetService(typeof(Models.MAXSDBContext)) as Models.MAXSDBContext; ;
+
                 bool a = false;
                 if (Type == "1")
                 {
@@ -74,11 +72,11 @@ namespace MASActivationService.Controllers
                     error = "Register";
                     a = dbcontext.Register(Key, SoftwareID, PCNO, EMAIL, Phone, ActivationUser, IP);
                 }
-                return  a.ToString() ;
+                return a.ToString();
             }
             catch (Exception ex)
             {
-                return  (error + " Error:" + ex.Message);
+                return (error + " Error:" + ex.Message);
             }
         }
 
